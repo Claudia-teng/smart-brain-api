@@ -34,15 +34,3 @@ const handleRegister = (req, res, db, bcrypt) => {
 module.exports = {
     handleRegister: handleRegister
 }
-
-// db('users')
-    //     .insert({
-    //         email: email,
-    //         name: name,
-    //         joined: new Date()
-    //     })
-    //     .returning('*')
-    //     .then(user => {
-    //         res.json(user[0]);
-    //     })
-    //     .catch(err => res.status(400).json('unable to register'))
