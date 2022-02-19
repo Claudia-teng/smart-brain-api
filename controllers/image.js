@@ -6,11 +6,11 @@ const app = new Clarifai.App({
 
 const handleApiCall = (req, res) => {
     app.models
-        .predict(Clarifai.FACE_DETECT_MODEL, req.body.input)
+        .predict('53e1df302c079b3db8a0a36033ed2d15', req.body.input)
         .then(data => {
             res.json(data);
         })
-        .catch(err => res.status(400).json('enable to work with API!!'))
+        .catch(err => res.status(400).json('enable to work with API'))
 }
   
 
