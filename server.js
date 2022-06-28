@@ -2,12 +2,12 @@ const express = require("express");
 const bcrypt = require("bcrypt-nodejs");
 const cors = require('cors');
 const knex = require('knex');
+require("dotenv").config();
 
 const register = require('./controllers/register');
 const signin = require('./controllers/signin');
 const profile = require('./controllers/profile');
 const image = require('./controllers/image');
-
 
 const db = knex ({
     client: 'pg',
@@ -15,9 +15,9 @@ const db = knex ({
         connectionString: process.env.DATABASE_URL,
         ssl: {
             rejectUnauthorized: false
-          }
         }
-  });
+    }
+});
 
 const app = express();
 app.use(express.json());
@@ -56,5 +56,5 @@ app.post("/imageurl", (res, rep) => { image.handleApiCall(res, rep) });
 
 
 app.listen(process.env.PORT || 3000, () => {
-    console.log(`app is running on ${ process.env.PORT }`);
+    console.log(`app is running on ${ process.env.PORT || 3000}`);
 })
